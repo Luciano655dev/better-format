@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Luciano655dev/better-format/issues"
   },
-  "homepage": "https://github.com/Luciano655dev/better-format#readme"
+  "homepage": "https://github.com/Luciano655dev/better-format#readme",
+  "dependencies": {
+    "google-libphonenumber": "^3.2.33"
+  }
 }
