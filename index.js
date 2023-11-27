@@ -1,4 +1,4 @@
-const ValidPhoneNumber = require('./utils/ValidPhoneNumber')
+const ValidatePhoneNumber = require('./utils/ValidatePhoneNumber')
 const FormatString = require('./utils/FormatString')
 const RemoveCurseWords = require('./utils/RemoveCurseWords')
 const ValidateCPF = require('./utils/ValidateCPF')
@@ -11,5 +11,5 @@ module.exports = {
     FormatString,
     RemoveCurseWords,
     ValidateCPF,
-    ValidPhoneNumber
+    ValidatePhoneNumber
 }

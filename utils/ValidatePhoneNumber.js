@@ -1,7 +1,7 @@
 const libphonenumber = require('google-libphonenumber')
 const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance()
 
-function ValidPhoneNumber(num, countryCode) {
+function ValidatePhoneNumber(num, countryCode) {
     try {
         let isValid
         const internationalNumber = phoneUtil.parseAndKeepRawInput(num, countryCode)
@@ -29,4 +29,4 @@ function ValidPhoneNumber(num, countryCode) {
 }
 
 
-module.exports = ValidPhoneNumber
+module.exports = ValidatePhoneNumber

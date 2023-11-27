@@ -1,4 +1,5 @@
 function ValidateCPF(cpf){
+    cpf = cpf.toString()
     cpf = cpf.replace(/\D/g, '');
 
     // Verifica se tem 11 digitos

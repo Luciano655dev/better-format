@@ -28,13 +28,15 @@ Para instalar este pacote, você precisa:
 
 ## 📖 Como ler a documentação
 As funções estarão nesse formato: </br>
-### `Nome da função` </br>
+### `NomeDaFunção()` </br>
 ```js
-Código exemplo (JavaScript)
+NomeDaFunção(parametroObrigatório, ?parametroOpicional)
 ```
 Explicação da função </br>
 #### Parametros
   - `nomeDoParametro (tipo)` `valor default`
+#### Retorno
+  - `(tipo)` `retorno da função`
 
 ## 📞 Contato
 - <a href='https://twitter.com/Luciano655dev'>Twitter: @Luciano655dev</a>
@@ -98,7 +100,7 @@ Você pode colocar o nome que preferir no lugar de `bt`
 ## 🖥️ Funções
 ### `FormatString()`
 ```js
-bf.FormatString(string, { obscenities, censorshipChar, leetspeak })
+bf.FormatString(string, ?{ wordCase, removeSpaces, removeSpecialChars, capitalize }, ?{ obscenities, censorshipChar, leetspeak })
 ```
 Essa função irá:
 - deixar o texto todo em minúsculo
@@ -107,14 +109,24 @@ Essa função irá:
 - Censurar palavrões e outras palavras (opicional)
 #### Parametros
 - `string (string)` - a string que será formatada </br>
+- `{ wordCase, removeSpaces, removeSpecialChars, capitalize }` - objeto opicional para personalizar a formatação da String
+  - `wordCase (string, can be 'lower', 'upper' or '')` `default: 'lower'` - Fala se as letras serão colocadas todas em minusculo ou maiusculo, utilize '' (string vazia) para não modifica-las.
+  - `removeSpaces (boolean)` `default: true` - Remove ou não os espaços da string.
+  - `removeSpecialChars (boolean)` `default: true` - Remove ou não os caracteres especiais (tudo que não seja letra e número) da string.
+  - `capitalize (string or array of strings)` `default: ''` - Deixa uma letra maiuscula depois de todas as strings passadas na string inicial. Utilize '' para não modificar
+    - Exemplo: `capitalize: '. '` - 'ele é legal. outra frase. olha isso' -> 'Ele é legal. Outra frase. Olha isso'
+    - Exemplo: `capitalize: ['. ', '5 ']` - 'frase bacana. nós temos 5 pessoas' -> 'Frase Bacana. Nós temos 5 Pessoas'
+    - A implementação de Regex para essa função será adicionada nas próximas atualizações. <a href="https://github.com/Luciano655dev/better-format">Você também pode contribuir.</a>
 - `{ obscenities, censorshipChar, leetspeak }` - valor opicional, se for declarado, a string irá censurar palavrões
   - `obscenities (array of strings)` `default: []` - uma Array com as palavras censuradas. Caso esteja vazia, apenas as palavras no banco de dados serão censuradas (alguns palavrões em inglês).
   - `censorshipChar (char)` `default: '#'` - O caractere que substituirá as letras da palavra censurada. Para retirar a palavra censurada, utilize '' como valor dessa variável;
   - `leetspeak (boolean)` `default: true` - irá ou não considerar numeros que se parecem com letras na hora de procurar palavras. Ex: h3ll0
+#### Retorno
+- `(string)` - retorna uma string com o valor da string formatada.
 
 ### `RemoveCurseWords()`
 ```js
-bf.RemoveCurseWords(string, obscenities, censorshipChar, leetspeak)
+bf.RemoveCurseWords(string, ?obscenities, ?censorshipChar, ?leetspeak)
 ```
 Essa função irá censurar palavrões e palaras específicas. Mesma utilizada na `FormatString()`
 #### Parametros
@@ -122,5 +134,33 @@ Essa função irá censurar palavrões e palaras específicas. Mesma utilizada n
 - `obscenities (array of strings)` `default: []` - uma Array com as palavras censuradas. Caso esteja vazia, apenas as palavras no banco de dados serão censuradas (alguns palavrões em inglês).
 - `censorshipChar (char)` `default: '#'` - O caractere que substituirá as letras da palavra censurada. Para retirar a palavra censurada, utilize '' como valor dessa variável;
 - `leetspeak (boolean)` `default: true` - irá ou não considerar numeros que se parecem com letras na hora de procurar palavras. Ex: h3ll0
-</br> </br>
-### Mais funções serão adicionadas com o tempo. Contribua!
+#### Retorno
+- `(string)` - retorna uma string com o valor da string censurada.
+
+### `ValidateCPF()`
+```js
+bf.ValidateCPF(cpf)
+```
+Essa função irá validar um CPF, retornando `true` se for válido e `false` se for inválido.
+#### Parametros
+- `cpf (string/number)` - O CPF que será validado. </br>
+#### Retorno
+- `(boolean)` - `true` caso o CPF seja válido e `false` caso seja inválido. </br>
+
+### `ValidatePhoneNumber()`
+```js
+bf.ValidatePhoneNumber(phoneNumber, ?localização)
+```
+Essa função irá validar um Número de Telefone de qualquer país, <a href="https://www.npmjs.com/package/google-libphonenumber">mais informações Aqui</a>.
+#### Parametros
+- `phoneNumber (string)` - O nº de telefone que será validado, precisa começar com '+' seguido do código do pais, exemplo: `+## ## #####-####`. </br>
+- `localização (string)` - A sigla do país ('BR', 'US', etc). Caso seja preenchido, a função irá verificar se o número é daquele país. </br>
+#### Retorno
+- caso negado - `{ valid: false, locality: null }` - Caso o telefone não pertença ao país especificado (se for especificado) ou não seja válido. </br>
+- caso aceito - `{ valid: true, locality, nationalNumber, extension, countrySourceCode, numberType }` - Caso o telefone seja válido e pertença ao pais especificado (se for especificado). </br>
+  - `valid (boolean)` - `true` se for valido e `false` se for inválido.
+  - `locality (string)` - Sigla do país do número ('BR', 'US', etc).
+  - `nationalNumber (number)` - Seu número nacional, sem o código do país, como `+## ## #####-###` -> `#########`.
+  - `extension (string)` - Mostra o <a href="https://www.dicomp.com.br/noticia/30/telefone-ramal-saiba-o-que-e-e-de-que-maneira-ele-pode-facilitar-a-sua-vida">ramal do telefone</a> (se possuir).
+  - `countrySourceCode (number)` - Imprime o ramal do telefone em comparação com <a href="https://www.javadoc.io/doc/com.googlecode.libphonenumber/libphonenumber/8.8.0/com/google/i18n/phonenumbers/class-use/Phonenumber.PhoneNumber.CountryCodeSource.html">i18n.phonenumbers.CountryCodeSource</a> .
+  - `numberType (number)` - Resultado de `getNumberType()` quando comparado a <a href="https://www.javadoc.io/doc/com.googlecode.libphonenumber/libphonenumber/8.8.7/com/google/i18n/phonenumbers/PhoneNumberUtil.PhoneNumberType.html">i18n.phonenumbers.PhoneNumberType</a>.
