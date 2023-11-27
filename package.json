@@ -1,0 +1,22 @@
+{
+  "name": "better-format",
+  "version": "0.0.1",
+  "description": "A better way to format and get details about your variables",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luciano655dev/better-format.git"
+  },
+  "keywords": [
+    "formatting"
+  ],
+  "author": "Luciano655dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luciano655dev/better-format/issues"
+  },
+  "homepage": "https://github.com/Luciano655dev/better-format#readme"
+}
