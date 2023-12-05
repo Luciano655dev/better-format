@@ -14,8 +14,8 @@
 O projeto ainda está em desenvolvimento, com o tempo, novas funcionalidades serão adicionadas, como:
 - [X] Formatar Strings
 - [ ] Formatar Numeros
-- [ ] Verificar e-mail
-- [ ] Verificar CPF
+- [X] Verificar e-mail
+- [X] Verificar CPF
 - [ ] etc...
 
 ## 💻 Pré-requisitos
@@ -164,3 +164,32 @@ Essa função irá validar um Número de Telefone de qualquer país, <a href="ht
   - `extension (string)` - Mostra o <a href="https://www.dicomp.com.br/noticia/30/telefone-ramal-saiba-o-que-e-e-de-que-maneira-ele-pode-facilitar-a-sua-vida">ramal do telefone</a> (se possuir).
   - `countrySourceCode (number)` - Imprime o ramal do telefone em comparação com <a href="https://www.javadoc.io/doc/com.googlecode.libphonenumber/libphonenumber/8.8.0/com/google/i18n/phonenumbers/class-use/Phonenumber.PhoneNumber.CountryCodeSource.html">i18n.phonenumbers.CountryCodeSource</a> .
   - `numberType (number)` - Resultado de `getNumberType()` quando comparado a <a href="https://www.javadoc.io/doc/com.googlecode.libphonenumber/libphonenumber/8.8.7/com/google/i18n/phonenumbers/PhoneNumberUtil.PhoneNumberType.html">i18n.phonenumbers.PhoneNumberType</a>.
+
+### `ValidateEmail()`
+```js
+bf.ValidateEmail(email)
+```
+Essa função irá validar um e-mail, retornando `true` se for válido e `false` se for inválido.
+#### Parametros
+- `email (string)` - O e-mail que será validado. </br>
+#### Retorno
+- `(boolean)` - `true` caso o e-mail seja válido e `false` caso seja inválido. </br>
+
+### `ParseURL()`
+```js
+bf.ParseURL(url)
+```
+Essa função irá retornar informações diversas sobre uma URL.
+#### Parametros
+- `url (string)` - A URL que será validado. </br>
+#### Retorno
+- `{ urlObj, protocol, subdomain, domain, port, path, query, parameters, fragment }` - As informações da URL, onde: </br>
+  - `urlObj (object)` - retorna o <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/URL">`new URL(url)`</a> completo.
+  - `protocol (string)` - retorna o protocolo da URL (http/https).
+  - `subdomain (string/null)` - retorna o subdomínio da URL ou `null` caso não tenha.
+  - `domain (string)` - retorna o domínio principal da URL ou uma string vazia `""` caso não tenha.
+  - `port (string)` - retorna a porta da URL ou uma string vazia `""` caso não tenha.
+  - `path (string)` - retorna os caminhos da URL ou uma string vazia `""` caso não tenha.
+  - `query (string)` - retona a query da URL ou uma string vazia `""` caso não tenha.
+  - `parameters (object)` - retorna os parametros da URL ou um objeto vazio `{}` caso não tenha.
+  - `fragment (string)` - retorna os fragmentos da URL ou uma string vazia `""` caso não tenha.
