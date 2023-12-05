@@ -1,5 +1,5 @@
-function ValidateCreditCard(creditNumber) {
-    const cleanNumber = creditNumber.replace(/\D/g, '');
+function ValidateCreditCard(creditNumber){
+    const cleanNumber = creditNumber.toString().replace(/\D/g, '')
 
     // Check if the number is provided and has the correct length
     if (!cleanNumber || cleanNumber.length !== 16) {
@@ -22,7 +22,7 @@ function ValidateCreditCard(creditNumber) {
     }
 
     // Obter o nome do Banco do Cartão
-    const bin = numeroDoCartao.substring(0, 6)
+    const bin = cleanNumber.substring(0, 6)
     const binBanks = {
         '4': 'Visa',
         '5': 'MasterCard',

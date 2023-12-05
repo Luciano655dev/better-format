@@ -193,3 +193,33 @@ Essa função irá retornar informações diversas sobre uma URL.
   - `query (string)` - retona a query da URL ou uma string vazia `""` caso não tenha.
   - `parameters (object)` - retorna os parametros da URL ou um objeto vazio `{}` caso não tenha.
   - `fragment (string)` - retorna os fragmentos da URL ou uma string vazia `""` caso não tenha.
+
+### `ValidateCreditCard()`
+```js
+bf.ValidateCreditCard(creditCardNumber)
+```
+Essa função irá validar um cartão, retornando `true` e `bank (string)` se for válido e `false` se for inválido.
+#### Parametros
+- `creditCardNumber (string/number)` - O número do cartão que será validado. </br>
+#### Retorno
+- `(boolean)` - `true` caso o e-mail seja válido e `false` caso seja inválido. </br>
+- `bank (string/undefined)` - `nomeDaBandeira` caso seja definida e esteja pre-definida no código e `undefined` caso não tenha ou não esteja pre-definida.
+
+### `ValidatePassword()`
+```js
+bf.ValidatePassword(password, ?{ minLength, needNumbers, needUppercaseLetters, needSpecialChars, commonWords })
+```
+Essa função irá validar uma senha, retornando uma pontuação para ela, mostrando se é ou não é válida e retornando os testes aprovados e recusados.
+#### Parametros
+- `creditCardNumber (string/number)` - O número do cartão que será validado. </br>
+- `{ minLength, needNumbers, needUppercaseLetters, needSpecialChars, commonWords }` - Objeto opicional para personalizar a validação, onde:
+  - `minLength (string)` `default: 8` - Tamanho mínimo para a senha. Sendo `0` quando não tem tamanho mínimo.
+  - `needNumbers (boolean)` `default: true` - Se precisa ou não de números.
+  - `needUppercaseLetters (boolean)` `default: true` - Se precisa ou não de alguma letra maiúscula.
+  - `needSpecialChars (boolean)` `default: true` - Se precisa ou não de algum caractere especial.
+  - `commonWords (array of strings)` `default: ["123", "abc"]` - Lista de palavras que não podem ser usadas na senha, por serem muito comuns ou por conterem informações pessoais. Sendo `false` ou `[]` para não ter palavras comuns.
+#### Retorno
+- `{ verifications, totalPoints, isValid }`
+  - `verifications (object of booleans)` - Um objeto com todas as verificações, de mesmo nome dos parâmetros, com `true` caso a senha passe e `false` caso não passe da verificação.
+  - `totalPoints (number)` - numero com a pontuação da seha de acordo com as verificações.
+  - `isValid (boolean)` - Boolean retornando `true` caso a pontuação seja acima de 0 e `false` caso seja abaixo.
