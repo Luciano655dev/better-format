@@ -21,7 +21,29 @@ function ValidateCreditCard(creditNumber) {
         sum += digit;
     }
 
-    return sum % 10 === 0;
+    // Obter o nome do Banco do Cartão
+    const bin = numeroDoCartao.substring(0, 6)
+    const binBanks = {
+        '4': 'Visa',
+        '5': 'MasterCard',
+        '37': 'American Express',
+        '34': 'Discover',
+        '51': 'MasterCard',
+        '52': 'MasterCard',
+        '53': 'MasterCard',
+        '54': 'MasterCard',
+        '55': 'MasterCard',
+        // Adicionar mais caso necessário
+    };
+
+    const bank = binBanks[bin] ? binBanks[bin] : undefined
+    const isValid = sum % 10 === 0
+
+    if(!isValid) return { isValid: false }
+    return{
+        isValid,
+        bank
+    }
 }
 
 module.exports = ValidateCreditCard
