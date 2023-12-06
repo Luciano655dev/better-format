@@ -153,7 +153,8 @@ Essa função irá validar um CPF, retornando `true` se for válido e `false` se
 #### Parametros
 - `cpf (string/number)` - O CPF que será validado. </br>
 #### Retorno
-- `(boolean)` - `true` caso o CPF seja válido e `false` caso seja inválido. </br>
+- `{ isValid: false }` - Caso o CPF seja inválido. </br>s
+- `{ isValid: true, cleanCPF: string }` - Caso o CPF seja válido, onde o `cleanCPF` é apenas a parte numérica do CPF. </br>
 
 ### `ValidateCNPJ()`
 ```js
@@ -163,7 +164,8 @@ Essa função irá validar um CNPJ, retornando `true` se for válido e `false` s
 #### Parametros
 - `cnpj (string/number)` - O CNPJ que será validado. </br>
 #### Retorno
-- `(boolean)` - `true` caso seja válido e `false` caso seja inválido. </br>
+- `{ isValid: false }` - Caso o CNPJ seja inválido. </br>
+- `{ isValid: true, cleanCNPJ: string }` - Caso o CNPJ seja válido, onde o `cleanCNPJ` é apenas a parte numérica do CNPJ. </br>
 
 ### `ValidatePhoneNumber()`
 ```js
