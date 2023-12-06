@@ -1,6 +1,6 @@
 {
   "name": "better-format",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A better way to format and get details about your variables",
   "main": "index.js",
   "scripts": {
