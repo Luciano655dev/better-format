@@ -6,6 +6,7 @@ const ValidateEmail = require('./utils/ValidateEmail')
 const ParseURL = require('./utils/ParseURL')
 const ValidateCreditCard = require('./utils/ValidateCreditCard')
 const ValidatePassword = require('./utils/ValidatePassword')
+const ValidateCNPJ = require('./utils/ValidateCNPJ')
 
 function FormatNumber(n) {
     return Math.floor(Number(n))
@@ -19,5 +20,6 @@ module.exports = {
     ValidateEmail,
     ParseURL,
     ValidateCreditCard,
-    ValidatePassword
+    ValidatePassword,
+    ValidateCNPJ
 }

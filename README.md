@@ -147,6 +147,16 @@ Essa função irá validar um CPF, retornando `true` se for válido e `false` se
 #### Retorno
 - `(boolean)` - `true` caso o CPF seja válido e `false` caso seja inválido. </br>
 
+### `ValidateCNPJ()`
+```js
+bf.ValidateCNPJ(cnpj)
+```
+Essa função irá validar um CNPJ, retornando `true` se for válido e `false` se for inválido.
+#### Parametros
+- `cnpj (string/number)` - O CNPJ que será validado. </br>
+#### Retorno
+- `(boolean)` - `true` caso seja válido e `false` caso seja inválido. </br>
+
 ### `ValidatePhoneNumber()`
 ```js
 bf.ValidatePhoneNumber(phoneNumber, ?localização)
