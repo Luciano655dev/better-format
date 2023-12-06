@@ -1,10 +1,10 @@
 # better-format
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/Luciano655dev/better-format?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/Luciano655dev/better-format?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/Luciano655dev/better-format?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/Luciano655dev/better-format?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/Luciano655dev/better-format?style=for-the-badge)
 
 > Um Pacote NPM para facilitar sua vida na hora de formatar e pegar informações sobre variáveis </br>
 > <a href="https://www.npmjs.com/package/better-format"> Acesse o projeto no site do NPM </a> </br>
@@ -13,9 +13,9 @@
 ### Ajustes e melhorias
 O projeto ainda está em desenvolvimento, com o tempo, novas funcionalidades serão adicionadas, como:
 - [X] Formatar Strings
-- [ ] Formatar Numeros
 - [X] Verificar e-mail
 - [X] Verificar CPF
+- [ ] Formatar Numeros
 - [ ] etc...
 
 ## 💻 Pré-requisitos
@@ -62,10 +62,18 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 <table>
   <tr>
     <td align="center">
-      <a href="#" title="defina o titulo do link">
-        <img src="https://avatars.githubusercontent.com/u/83819836?v=4" width="100px;" alt="Foto Luciano655dev Github"/><br>
+      <a href="https://github.com/Luciano655dev">
+        <img src="https://avatars.githubusercontent.com/u/83819836?v=4" width="100px;"/><br>
         <sub>
           <b>Luciano655dev</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Yagasaki7K">
+        <img src="https://avatars.githubusercontent.com/u/23272064?v=4" width="100px;"/><br>
+        <sub>
+          <b>Yagasaki7K</b>
         </sub>
       </a>
     </td>
