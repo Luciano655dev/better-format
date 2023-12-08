@@ -7,10 +7,7 @@ const ParseURL = require('./utils/ParseURL')
 const ValidateCreditCard = require('./utils/ValidateCreditCard')
 const ValidatePassword = require('./utils/ValidatePassword')
 const ValidateCNPJ = require('./utils/ValidateCNPJ')
-
-function FormatNumber(n) {
-    return Math.floor(Number(n))
-}
+const ValidateCEP = require('./utils/ValidateCEP')
 
 module.exports = {
     FormatString,
@@ -21,5 +18,6 @@ module.exports = {
     ParseURL,
     ValidateCreditCard,
     ValidatePassword,
-    ValidateCNPJ
+    ValidateCNPJ,
+    ValidateCEP
 }

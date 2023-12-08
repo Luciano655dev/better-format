@@ -167,6 +167,27 @@ Essa função irá validar um CNPJ, retornando `true` se for válido e `false` s
 - `{ isValid: false }` - Caso o CNPJ seja inválido. </br>
 - `{ isValid: true, cleanCNPJ: string }` - Caso o CNPJ seja válido, onde o `cleanCNPJ` é apenas a parte numérica do CNPJ. </br>
 
+### `ValidateCEP()`
+```js
+await bf.ValidateCEP(cep)
+```
+Essa função irá validar e retornar as informações de um CEP de acordo com a <a href="https://viacep.com.br">API ViaCEP</a>.
+**NOTA: Essa é uma PROMISE, portanto, para utiliza-la, será preciso do <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">`.then().catch()`</a> ou de uma <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/async_function">função assíncrona (`async/await`)</a>**
+#### Parametros
+- `cep (string/number)` - O cep que será validado. </br>
+#### Retorno
+- `{ isValid, cleanCEP, logradouro, complemento, bairro, cidade, estado }` - Caso seja ``true``
+  - `isValid (bool)` - Um booleano, sendo `true` quando é válido e `false` quando não é válido.
+  - `cleanCEP (string)` - Uma string com o valor do CEP formatado.
+  - `logradouro (string)` - O logradouro referente ao CEP (Ex: ``'Avenida Paulista'``).
+  - `complemento (string)` - O complemento referente ao CEP (Ex: ``'numero 243, apartamento 502'``).
+  - `bairro` - O bairro referente ao CEP (Ex: `'Liberdade'`).
+  - `cidade` - A cidade referente ao CEP (Ex: `'São Paulo'`).
+  - `estado` - A sigla do estado referente ao CEP (Ex: `'SP'`).
+- `{ isValid, errorMsg }` - Caso seja ``false``
+  - `isValid (bool)` - Um booleano, sendo `true` quando é válido e `false` quando não é válido.
+  - `errorMsg (string)` - A mensagem de erro referente ao erro (em português).
+
 ### `ValidatePhoneNumber()`
 ```js
 bf.ValidatePhoneNumber(phoneNumber, ?localização)
