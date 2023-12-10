@@ -4,7 +4,7 @@ const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance()
 function ValidatePhoneNumber(num, countryCode) {
     try {
         let isValid
-        const internationalNumber = phoneUtil.parseAndKeepRawInput(num, countryCode)
+        const internationalNumber = num[0] == '+' ? phoneUtil.parseAndKeepRawInput(num, countryCode) : phoneUtil.parseAndKeepRawInput(`+${num}`, countryCode)
 
         if(countryCode)
             isValid = phoneUtil.isValidNumberForRegion(internationalNumber, countryCode)
@@ -21,7 +21,11 @@ function ValidatePhoneNumber(num, countryCode) {
                 numberType: phoneUtil.getNumberType(internationalNumber)
             }
         } else {
-            return { valid: false, locality: null }
+            return {
+                valid: false,
+                locality: null,
+                msg: phoneUtil.isValidNumber(internationalNumber) == false ? "O numero de telefone não é válido" : "O número de telefone não condiz com o país especificado"
+            }
         }
     } catch (error) {
         return { valid: false, locality: null, msg: `${error}` }

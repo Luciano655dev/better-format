@@ -1,4 +1,5 @@
 function ValidatePassword(password, parameters = {}){
+    // PENSAR EM UMA FORMA DE TER AS COISAS OBRIGATORIAS
     const {
         minLength = 8,
         needNumbers = true,
@@ -7,9 +8,11 @@ function ValidatePassword(password, parameters = {}){
         commonWords = ["123", "abc"],
     } = parameters;
 
+    if(password.length < minLength) return { isValid: false, msg: 'A senha é muito curta' }
+
     const results = {}
     results.verifications = {
-        minLength: password.length >= minLength,
+        minLength: true,
         needNumbers: needNumbers && /\d/.test(password),
         needUppercaseLetters: needUppercaseLetters && /[A-Z]/.test(password),
         needSpecialChars: needSpecialChars && /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password),

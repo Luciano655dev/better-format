@@ -38,6 +38,9 @@ Explicação da função </br>
 #### Retorno
   - `(tipo)` `retorno da função`
 
+## 🧪 Como fazer um teste
+- Para seguir essa etapa da melhor forma, siga a <a href="https://jestjs.io/pt-BR">documentação d Jest.JS</a>
+
 ## 📞 Contato
 - <a href='https://twitter.com/Luciano655dev'>Twitter: @Luciano655dev</a>
 - <a href='https://github.com/Luciano655dev'>GitHub: @Luciano655dev</a>
@@ -74,6 +77,14 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <img src="https://avatars.githubusercontent.com/u/23272064?v=4" width="100px;"/><br>
         <sub>
           <b>Yagasaki7K</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Nick-Gabe">
+        <img src="https://avatars.githubusercontent.com/u/42651514?v=4" width="100px;"/><br>
+        <sub>
+          <b>Nick-Gabe</b>
         </sub>
       </a>
     </td>
