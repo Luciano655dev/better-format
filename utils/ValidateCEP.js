@@ -3,7 +3,7 @@ function ValidateCEP(cep) {
     cep = cep.toString().replace(/\D/g, '')
 
     // retorna se o CEP for inválido
-    if (!regexCEP.test(cep)) return { isValid: false, error: true, errMsg: 'CEP Inválido'}
+    if (!regexCEP.test(cep)) return new Error('Invalid CEP', { isValid: false, error: true })
   
     // Consulta o ViaCEP para obter informações do endereço
     var url = `https://viacep.com.br/ws/${cep}/json/`;
@@ -12,11 +12,10 @@ function ValidateCEP(cep) {
       .then(response => response.json())
       .then(data => {
         if (data.erro) {
-          return {
+          return new Error('CEP not found', {
             isValid: false,
-            error: data.erro,
-            error: 'CEP não encontrado.',
-          }
+            error: data.erro
+          })
         } else {
           return {
             isValid: true,
@@ -32,8 +31,8 @@ function ValidateCEP(cep) {
       .catch(error => {
         return {
             isValid: true,
-            errMsg: 'Erro ao consultar a API ViaCEP (https://viacep.com.br/ws/{SEU_CEP_AQUI}/json)',
-            error: new Error('Erro ao consultar a API ViaCEP: '+error)
+            errMsg: 'Error when querying the ViaCEP API (https://viacep.com.br/ws/{SEU_CEP_AQUI}/json)',
+            error: new Error('Error when querying the ViaCEP API: '+error)
           }
       });
   }

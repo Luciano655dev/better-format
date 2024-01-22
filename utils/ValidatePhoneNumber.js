@@ -13,7 +13,7 @@ function ValidatePhoneNumber(num, countryCode) {
 
         if (isValid) {
             return {
-                valid: true,
+                isValid: true,
                 locality: phoneUtil.getRegionCodeForNumber(internationalNumber),
                 nationlNumber: internationalNumber.getNationalNumber(),
                 extension: internationalNumber.getExtension(),
@@ -22,13 +22,16 @@ function ValidatePhoneNumber(num, countryCode) {
             }
         } else {
             return {
-                valid: false,
+                isValid: false,
                 locality: null,
-                msg: phoneUtil.isValidNumber(internationalNumber) == false ? "O numero de telefone não é válido" : "O número de telefone não condiz com o país especificado"
+                errMsg:
+                    phoneUtil.isValidNumber(internationalNumber) == false ?
+                    "The phone number is not valid" :
+                    "The phone number does not match the specified country"
             }
         }
     } catch (error) {
-        return { valid: false, locality: null, msg: `${error}` }
+        return new Error('Invalid phone number', { isValid: false, locality: null, errMsg: `${JSON.stringify(error)}` })
     }
 }
 

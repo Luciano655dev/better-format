@@ -13,8 +13,8 @@ function ParseURL(url){
             parameters: urlObj.searchParams,
             fragment: urlObj.hash,
         }
-    } catch (err) {
-        return err
+    } catch (error) {
+        return new Error('URL inválida', { error })
     }
 }
 

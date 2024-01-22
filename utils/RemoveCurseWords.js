@@ -1,5 +1,5 @@
 function RemoveCurseWords(str, obscenities = [], censorshipChar = '#', leetspeak = true){
-    let finalStr = str
+    let finalStr = JSON.stringify(str)
     obscenities = [...obscenities, 'bitch', 'dick', 'motherfucker', 'fuck', 'jerk']
 
     // Remove as palavras censuradass
@@ -19,7 +19,7 @@ function RemoveCurseWords(str, obscenities = [], censorshipChar = '#', leetspeak
             const regex = new RegExp(obscenity, 'gi')
             finalStr = finalStr.replace(regex, censorship)
         }
-    });
+    })
 
     return finalStr
 }

@@ -2,9 +2,8 @@ function ValidateCreditCard(creditNumber){
     const cleanNumber = creditNumber.toString().replace(/\D/g, '')
 
     // Check if the number is provided and has the correct length
-    if (!cleanNumber || cleanNumber.length !== 16) {
-        return false;
-    }
+    if (!cleanNumber || cleanNumber.length !== 16)
+        return new Error('Invalid Number', { isValid: false, errMsg: 'Wrong size number' })
 
     // Apply the Luhn algorithm
     let sum = 0;
@@ -39,7 +38,9 @@ function ValidateCreditCard(creditNumber){
     const bank = binBanks[bin] ? binBanks[bin] : undefined
     const isValid = sum % 10 === 0
 
-    if(!isValid) return { isValid: false }
+    if(!isValid)
+        return new Error('Invalid Number', { isValid: false, errMsg: 'The number is invalid' })
+
     return{
         isValid,
         bank

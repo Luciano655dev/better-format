@@ -8,7 +8,8 @@ function ValidatePassword(password, parameters = {}){
         commonWords = ["123", "abc"],
     } = parameters;
 
-    if(password.length < minLength) return { isValid: false, msg: 'A senha é muito curta' }
+    if(password.length < minLength)
+        return new Error('Invalid Password', { isValid: false, msg: 'The password is too short' })
 
     const results = {}
     results.verifications = {

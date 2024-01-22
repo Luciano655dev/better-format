@@ -1,6 +1,8 @@
 const RemoveCurseWords = require('./RemoveCurseWords.js')
 
 function FormatString(str, formatation = {}, censorship = false) {
+    str = JSON.stringify(str) || ''
+
     const {
         removeSpaces = true,
         removeSpecialChars = true,
